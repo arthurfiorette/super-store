@@ -1,0 +1,44 @@
+{
+  "name": "super-store",
+  "version": "1.0.0",
+  "description": "Boost your stream elements store with two way sync with a steam inventory",
+  "private": true,
+  "main": "src/index.ts",
+  "scripts": {
+    "prettify": "prettier --write .",
+    "build": "tsc",
+    "watch": "ts-node-dev src/index.ts",
+    "start": "node dist/index.js",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArthurFiorette/super-store.git"
+  },
+  "author": "Arthur Fiorette",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ArthurFiorette/super-store/issues"
+  },
+  "homepage": "https://github.com/ArthurFiorette/super-store#readme",
+  "dependencies": {
+    "axios": "^0.21.3",
+    "dotenv": "^10.0.0",
+    "socket.io-client": "^2.2.0",
+    "steam-community": "^0.2.2",
+    "steam-totp": "^2.1.1",
+    "steam-tradeoffer-manager": "^2.10.3",
+    "steam-user": "^4.19.12",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@arthurfiorette/prettier-config": "^1.0.5",
+    "@types/node": "^16.7.10",
+    "@types/socket.io-client": "^1.4.36",
+    "@types/winston": "^2.4.4",
+    "prettier": "^2.3.2",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.4.2",
+    "husky": "^7.0.0"
+  }
+}
