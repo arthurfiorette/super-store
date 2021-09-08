@@ -26,7 +26,7 @@
   "dependencies": {
     "axios": "^0.21.3",
     "dotenv": "^10.0.0",
-    "socket.io-client": "^2.2.0",
+    "socket.io-client": "^4.2.0",
     "steam-community": "^0.2.2",
     "steam-totp": "^2.1.1",
     "steam-tradeoffer-manager": "^2.10.3",
