@@ -2,7 +2,7 @@ name: App CI
 
 on:
   push:
-    paths: ['**.json', '**.js', '**.ts']
+    paths: ['**.json', '**.js', '**.ts', '**.yml']
   workflow_dispatch:
 
 jobs:
