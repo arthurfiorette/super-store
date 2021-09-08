@@ -1,8 +1,7 @@
 import io, { Socket } from 'socket.io-client';
-import { SE_WS_URL } from '../core/env';
-import { Service } from '../core/services';
+import { SE_USER_JWT, SE_WS_URL } from '../core/env';
 import { Application } from '../core/index';
-import { SE_USER_JWT } from '../core/env';
+import { Service } from '../core/services';
 import { AuthenticatedEvent, UpdateEvent } from './types';
 import { UnauthorizedEvent } from './types/auth';
 

@@ -1,8 +1,8 @@
 import winston, { format, Logger } from 'winston';
 import { SESocketListener } from '../se/socket-listener';
+import { LOG_LEVEL } from './env';
 import { Service, ServiceConstructor } from './services';
 const { combine, colorize, cli } = format;
-import { LOG_LEVEL } from './env';
 
 export const Services: ServiceConstructor[] = [SESocketListener];
 
