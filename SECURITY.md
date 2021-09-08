@@ -2,8 +2,9 @@
 
 ## Supported Versions
 
-_This project is in beta and probably have security issues._ _Until v1, we doest not recommend using
-it on a production environment._
+_This project is in beta and probably have security issues._
+
+_Up to v1.0.0, we don't recommend using it in production._
 
 | Version | Supported |
 | ------- | --------- |

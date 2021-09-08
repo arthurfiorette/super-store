@@ -25,5 +25,5 @@
 </p>
 
 > <pre align="center">
-> Until v1.0.0, we does not recommend using it on production
+> Up to v1.0.0, we don't recommend using it in production
 > </pre>
