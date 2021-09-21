@@ -34,7 +34,7 @@
     "winston": "^3.3.3"
   },
   "devDependencies": {
-    "@arthurfiorette/prettier-config": "^1.0.5",
+    "@arthurfiorette/prettier-config": "^1.0.6",
     "@types/node": "^16.9.2",
     "@types/socket.io-client": "^1.4.36",
     "@types/winston": "^2.4.4",
