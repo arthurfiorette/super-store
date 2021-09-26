@@ -1,10 +1,8 @@
 import winston, { format, Logger } from 'winston';
-import { SESocketListener } from '../se/socket-listener';
 import { LOG_LEVEL } from './env';
-import { Service, ServiceConstructor } from './services';
+import { Service, ServiceConstructor } from './service';
+import { Services } from './service-list';
 const { combine, colorize, cli } = format;
-
-export const Services: ServiceConstructor[] = [SESocketListener];
 
 export class Application {
   readonly logger: Logger;

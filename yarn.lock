@@ -167,6 +167,11 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
+"@tusbar/cache-control@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@tusbar/cache-control/-/cache-control-0.6.0.tgz#9d057b393db24bfbf7d39e6e2bf766b945602e54"
+  integrity sha512-szxZ+I62MYILpuGywjShgE4e1WemNfNq5zu57ZP4gLXnQD7ng8vssrJ8MBseHPDNheJBLFsn2yfdHZIAHnmuvQ==
+
 "@types/json-schema@^7.0.7":
   version "7.0.9"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.9.tgz#97edc9037ea0c38585320b28964dde3b39e4660d"
@@ -425,6 +430,13 @@ aws4@^1.8.0:
   version "1.11.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.11.0.tgz#d61f46d83b2519250e2784daf5b09479a8b41c59"
   integrity sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA==
+
+axios-cache-interceptor@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/axios-cache-interceptor/-/axios-cache-interceptor-0.2.5.tgz#f5afb14286fb825c256dea4d46ac8d0329208b59"
+  integrity sha512-3eF5MlQet7eleWo8skVZyNAI7RXhpceCxocO+dhcRKwVawrYL+eSxnW5IJkdxIVDuhG1x3NdTA6zIOCxo7hMxQ==
+  dependencies:
+    "@tusbar/cache-control" "^0.6.0"
 
 axios@^0.21.4:
   version "0.21.4"

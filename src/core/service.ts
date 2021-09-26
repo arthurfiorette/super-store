@@ -1,4 +1,4 @@
-import { Application } from '.';
+import { Application } from './application';
 
 export abstract class Service {
   constructor(readonly core: Application) {}
