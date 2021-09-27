@@ -15,6 +15,7 @@
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
+    "lint": "tsc --noEmit",
     "prettify": "prettier --write ."
   },
   "dependencies": {
