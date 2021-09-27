@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { configuration } from './config/configuration';
 import { StreamModule } from './stream/stream.module';
 import { WebModule } from './web/web.module';
+import { SteamModule } from './steam/steam.module';
 
 @Module({
   imports: [
@@ -11,7 +12,8 @@ import { WebModule } from './web/web.module';
       envFilePath: '.env'
     }),
     StreamModule,
-    WebModule
+    WebModule,
+    SteamModule
   ]
 })
 export class AppModule {}
