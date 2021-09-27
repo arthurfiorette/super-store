@@ -1,4 +1,4 @@
-import { Injectable, Logger, OnModuleDestroy } from '@nestjs/common';
+import { Injectable, Logger, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import io from 'socket.io-client';
 import { Configuration } from 'src/config/configuration';
@@ -10,7 +10,7 @@ import {
 } from './types/stream';
 
 @Injectable()
-export class StreamService implements OnModuleDestroy {
+export class StreamService implements OnModuleDestroy, OnModuleInit {
   private readonly logger = new Logger(StreamService.name);
 
   private socket: StreamElementsSocket;
@@ -23,7 +23,7 @@ export class StreamService implements OnModuleDestroy {
     });
   }
 
-  connect = () => {
+  onModuleInit = () => {
     this.logger.log('Connecting to StreamElements socket');
 
     // Connection listeners
