@@ -31,7 +31,7 @@
     "socket.io-client": "2.4.0",
     "steam-totp": "^2.1.1",
     "steam-tradeoffer-manager": "^2.10.3",
-    "steam-user": "^4.19.12",
+    "steam-user": "^4.20.0",
     "steamcommunity": "^3.43.1"
   },
   "devDependencies": {
