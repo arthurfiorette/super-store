@@ -1,0 +1,49 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./data.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model InventoryItem {
+  id             Int     @id @default(autoincrement())
+  marketHashName String?
+  marketName     String?
+  name           String?
+  appId          Int
+  storeId        String?
+}
+
+// model InventoryItem {
+//   id Int @id @default(autoincrement())
+
+//   amount Int       @default(0)
+//   item   SteamItem @relation(fields: [itemId], references: [id])
+//   itemId Int
+// }
+
+// model SteamItem {
+//   id            Int             @id @default(autoincrement())
+//   inventoryItem InventoryItem[]
+
+//   // item info
+//   marketHashName String? @unique
+//   marketName     String?
+//   name           String?
+
+//   // steam info
+//   appId Int
+// }
+
+// model Trade {
+//   id Int @id @default(autoincrement())
+
+//   accepted    Boolean
+//   partnerId64 String
+//   tradeId     String  @unique
+//   isOutOffer  Boolean
+
+//   createdAt DateTime @default(now())
+// }

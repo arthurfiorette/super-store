@@ -11,8 +11,8 @@ import SteamCommunity from 'steamcommunity';
 export class SteamService implements OnModuleDestroy, OnModuleInit {
   private readonly logger = new Logger(SteamService.name);
 
-  readonly client = new SteamUser();
-  readonly community = new SteamCommunity();
+  readonly client = new SteamUser({});
+  readonly community = new SteamCommunity({});
   readonly offerManager = new TradeOfferManager({
     steam: this.client,
     community: this.community,
