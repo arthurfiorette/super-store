@@ -16,7 +16,8 @@
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "lint": "tsc --noEmit",
-    "prettify": "prettier --write ."
+    "prettify": "prettier --write .",
+    "postinstall": "declarator"
   },
   "dependencies": {
     "@nestjs/common": "^8.0.8",
@@ -42,6 +43,9 @@
     "@types/node": "^16.10.1",
     "@types/socket.io-client": "1.4.36",
     "@types/steam-totp": "^2.1.0",
+    "@types/steam-user": "^4.19.3",
+    "@types/steamcommunity": "^3.43.1",
+    "declarator": "^1.2.2",
     "husky": "^7.0.2",
     "prettier": "2.4.1",
     "prettier-plugin-organize-imports": "^2.3.4",

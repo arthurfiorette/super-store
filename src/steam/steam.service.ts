@@ -4,7 +4,7 @@ import { fromId, ICurrency } from 'src/common/currency';
 import { Configuration } from 'src/config/configuration';
 import SteamTotp from 'steam-totp';
 import TradeOfferManager from 'steam-tradeoffer-manager';
-import SteamUser from 'steam-user';
+import SteamUser, { EResult } from 'steam-user';
 import SteamCommunity from 'steamcommunity';
 
 @Injectable()
@@ -12,12 +12,12 @@ export class SteamService implements OnModuleDestroy, OnModuleInit {
   private readonly logger = new Logger(SteamService.name);
 
   readonly client = new SteamUser({});
-  readonly community = new SteamCommunity({});
+  readonly community = new SteamCommunity();
   readonly offerManager = new TradeOfferManager({
     steam: this.client,
     community: this.community,
     language: 'en'
-  });
+  }) as TradeOfferManager & NodeJS.EventEmitter;
 
   private _currency = {} as ICurrency;
 
@@ -49,10 +49,10 @@ export class SteamService implements OnModuleDestroy, OnModuleInit {
     this.client.logOff();
   };
 
-  private onWebSession = (_sessionId: number, cookies: string[]) => {
+  private onWebSession = (_sessionId: string, cookies: string[]) => {
     this.logger.debug('Started web session, delivering cookies');
 
-    this.offerManager.setCookies(cookies);
+    this.offerManager.setCookies(cookies, undefined, undefined);
     this.community.setCookies(cookies);
 
     // TODO: Migrate to new API (https://github.com/DoctorMcKay/node-steamcommunity/wiki/Steam-Confirmation-Polling#this-is-deprecated)
@@ -87,7 +87,7 @@ export class SteamService implements OnModuleDestroy, OnModuleInit {
     this.client.gamesPlayed(730);
   };
 
-  private onDisconnect = (resultId: number, msg: string) => {
+  private onDisconnect = (resultId: EResult, msg?: string | undefined) => {
     this.logger.warn(`Steam client disconnected. (${resultId}) ${msg}`);
   };
 
