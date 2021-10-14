@@ -171,10 +171,10 @@
     lodash.set "4.3.2"
     uuid "8.3.2"
 
-"@nestjs/core@^8.0.8":
-  version "8.0.8"
-  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-8.0.8.tgz#1c7148301a4f2c4efd0055833c08971f740bd80e"
-  integrity sha512-KD6A0EShox5GpMakZeNz1zslZYnqOnXI4o3X02FFTv5XkSqA3t9bS6lZueuf5WAfaGojizosHqka96K85PdNBg==
+"@nestjs/core@^8.1.1":
+  version "8.1.1"
+  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-8.1.1.tgz#d3c2452e8a4c83a4c511962c4a5bd0dd6d594b92"
+  integrity sha512-EnQcLVK5Ct2flMg86Iz4rR5SW8yiCxMQPUZmbPdAH64u5ZArtA1E6kwZXrEUkstUYu5en+W+Q/iwCC8l252b6Q==
   dependencies:
     "@nuxtjs/opencollective" "0.3.2"
     fast-safe-stringify "2.1.1"
