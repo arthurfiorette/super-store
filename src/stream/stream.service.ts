@@ -2,12 +2,14 @@ import { Injectable, Logger, OnModuleDestroy, OnModuleInit } from '@nestjs/commo
 import { ConfigService } from '@nestjs/config';
 import io from 'socket.io-client';
 import { Configuration } from '../common/configuration';
-import { StreamElementsSocket } from './types/socket';
+import { AxiosService } from '../web/axios.service';
+import { SEApi } from './stream.api';
 import {
   AuthenticatedEvent,
   RedemptionLatestUpdateEvent,
   UpdateEvent
 } from './types/events';
+import { StreamElementsSocket } from './types/socket';
 
 @Injectable()
 export class StreamService implements OnModuleDestroy, OnModuleInit {
@@ -15,12 +17,23 @@ export class StreamService implements OnModuleDestroy, OnModuleInit {
 
   private socket: StreamElementsSocket;
 
-  constructor(private readonly config: ConfigService<Configuration>) {
+  readonly api;
+
+  constructor(
+    private readonly config: ConfigService<Configuration>,
+    private readonly axiosService: AxiosService
+  ) {
     const socketUrl = config.get('seWsUrl');
     this.socket = io(socketUrl, {
       transports: ['websocket'],
       autoConnect: false
     });
+
+    this.api = new SEApi(
+      this.axiosService.axios,
+      config.get('seUserId')!,
+      config.get('seUserJwt')!
+    );
   }
 
   onModuleInit = () => {

@@ -27,3 +27,17 @@
 > <pre align="center">
 > Up to v1.0.0, this might not even compile :D
 > </pre>
+
+## Table of Contents
+
+## Development
+
+### Generating StreamElements API Code
+
+Make sure to have java installed.
+
+Run 
+
+```sh
+npm run generate
+```
