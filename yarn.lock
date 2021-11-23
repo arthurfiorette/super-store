@@ -373,10 +373,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/steam-user@^4.19.3":
-  version "4.19.3"
-  resolved "https://registry.yarnpkg.com/@types/steam-user/-/steam-user-4.19.3.tgz#1481eb7ee4c03d1a94e569191ac0943797df2bae"
-  integrity sha512-v0FMEHRPnh/68z65cwYLATmuSlYPF2w7EIUIwG/8MYsPb7I77IbCyZkEA4YZbYcd8Fh1CbA3PPUHJVpcMoZxDQ==
+"@types/steam-user@^4.20.0":
+  version "4.20.0"
+  resolved "https://registry.yarnpkg.com/@types/steam-user/-/steam-user-4.20.0.tgz#cc67f4b32d8997c798cf26d165975e9c93996e94"
+  integrity sha512-C9ijXxdijsG/X5Ye2DS7fptSa7WJ6zXdnQWpUsxCGS0AxbseQyH3dcw2fnUhSrOpgXnzEaI+I3/19hZA4Cgn0A==
   dependencies:
     "@types/bytebuffer" "*"
     "@types/node" "*"

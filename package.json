@@ -43,7 +43,7 @@
     "@types/node": "^16.10.1",
     "@types/socket.io-client": "1.4.36",
     "@types/steam-totp": "^2.1.0",
-    "@types/steam-user": "^4.19.3",
+    "@types/steam-user": "^4.20.0",
     "@types/steamcommunity": "^3.43.1",
     "declarator": "^1.2.2",
     "husky": "^7.0.2",
