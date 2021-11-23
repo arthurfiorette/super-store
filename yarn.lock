@@ -56,10 +56,12 @@
     ora "5.4.1"
     rxjs "6.6.7"
 
-"@arthurfiorette/prettier-config@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@arthurfiorette/prettier-config/-/prettier-config-1.0.6.tgz#dca729366cca252d94d4557621ae6d755981da8c"
-  integrity sha512-Le91x+bTfQogkMSLitxGr3xDjIaQYbsGmhljLihkA1jEuqrXTdg6CDrYSgbXHJblNXaigswZ66rPyP/poBRbOw==
+"@arthurfiorette/prettier-config@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@arthurfiorette/prettier-config/-/prettier-config-1.0.7.tgz#f723fc8c7c828cbea9cf15def89dbbf9b7335d33"
+  integrity sha512-AcMC+/JwgeRPgFId0blxjQ1ZsIZdjM3fRc32U+hk0Fj/7SnKe2ppbpObQPi7l2kpb7HhYCzCP5psUd3k/+8XLA==
+  dependencies:
+    "@types/prettier" "*"
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.8.3":
   version "7.14.5"
@@ -350,6 +352,11 @@
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
   integrity sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==
+
+"@types/prettier@*":
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-2.4.2.tgz#4c62fae93eb479660c3bd93f9d24d561597a8281"
+  integrity sha512-ekoj4qOQYp7CvjX8ZDBgN86w3MqQhLE1hczEJbEIjgFEumDy+na/4AJAbLXfgEWFNB2pKadM5rPFtuSGMWK7xA==
 
 "@types/request@*":
   version "2.48.7"
