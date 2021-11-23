@@ -45,7 +45,7 @@
     "@nestjs/schematics": "^8.0.3",
     "@types/currency-formatter": "^1.5.1",
     "@types/node": "^16.10.1",
-    "@types/socket.io-client": "1.4.36",
+    "@types/socket.io-client": "3.0.0",
     "@types/steam-totp": "^2.1.0",
     "@types/steam-user": "^4.19.3",
     "@types/steamcommunity": "^3.43.1",
