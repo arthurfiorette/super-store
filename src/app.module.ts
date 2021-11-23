@@ -1,19 +1,24 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { configuration } from './config/configuration';
+import { EventEmitterModule } from '@nestjs/event-emitter';
+import { configuration } from './common/configuration';
+import { SteamModule } from './steam/steam.module';
+import { StorageModule } from './storage/storage.module';
 import { StreamModule } from './stream/stream.module';
 import { WebModule } from './web/web.module';
-import { SteamModule } from './steam/steam.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       load: [configuration],
-      envFilePath: '.env'
+      envFilePath: '.env',
+      isGlobal: true
     }),
-    StreamModule,
+    EventEmitterModule.forRoot(),
     WebModule,
-    SteamModule
+    StorageModule,
+    SteamModule,
+    StreamModule
   ]
 })
 export class AppModule {}

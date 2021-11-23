@@ -1,4 +1,4 @@
-import type { CurrencyIdKey } from '../common/currency';
+import { CurrencyIdKey } from '../common/currency';
 
 export type Configuration = {
   seUserId: string;
@@ -34,7 +34,7 @@ export const configuration = (): Configuration => {
     steamPassword: get('STEAM_PASSWORD', { required: true }),
     steamSharedSecret: get('STEAM_SECRET', { required: true }),
     steamIdentitySecret: get('STEAM_IDENTITY', { required: true }),
-    steamOwnerId: get('STEAM_OWNER_ID', { default: '' }).trim().split(','),
+    steamOwnerId: get('STEAM_OWNER_IDS', { default: '' }).trim().split(','),
     pricesCurrency: get('PRICES_CURRENCY', { default: 'BRL' }) as CurrencyIdKey,
     pricesCurrencyValue: parseInt(get('PRICES_CURRENCY_VALUE', { default: '1000' }))
   };

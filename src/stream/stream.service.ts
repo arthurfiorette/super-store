@@ -1,9 +1,9 @@
 import { Injectable, Logger, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import io from 'socket.io-client';
-import type { Configuration } from '../config/configuration';
-import type { StreamElementsSocket } from './types/socket';
-import type {
+import { Configuration } from '../common/configuration';
+import { StreamElementsSocket } from './types/socket';
+import {
   AuthenticatedEvent,
   RedemptionLatestUpdateEvent,
   UpdateEvent
@@ -15,7 +15,7 @@ export class StreamService implements OnModuleDestroy, OnModuleInit {
 
   private socket: StreamElementsSocket;
 
-  constructor(private config: ConfigService<Configuration>) {
+  constructor(private readonly config: ConfigService<Configuration>) {
     const socketUrl = config.get('seWsUrl');
     this.socket = io(socketUrl, {
       transports: ['websocket'],

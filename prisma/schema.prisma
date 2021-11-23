@@ -1,20 +1,27 @@
 datasource db {
   provider = "sqlite"
-  url      = "file:./data.db"
+  url      = "file:../database.db"
 }
 
 generator client {
   provider = "prisma-client-js"
 }
 
-model InventoryItem {
-  id             Int     @id @default(autoincrement())
-  marketHashName String?
-  marketName     String?
-  name           String?
-  appId          Int
-  storeId        String?
+model Trade {
+  id             Int       @id @default(autoincrement())
 }
+
+// model InventoryItem {
+//   id             Int       @id @default(autoincrement())
+//   commodity      Boolean
+//   appId          Int
+//   contextId      Int
+//   /// Only if commodity == true
+//   amount         Int?
+//   /// The date when the tradelock end
+//   tradelockEnd   DateTime?
+//   marketHashName String
+// }
 
 // model InventoryItem {
 //   id Int @id @default(autoincrement())

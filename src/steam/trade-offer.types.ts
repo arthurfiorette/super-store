@@ -9,9 +9,9 @@
 //   commodity: boolean;
 // };
 
-import type { ETradeOfferState } from 'steam-user';
-import type CEconItem from 'steamcommunity/classes/CEconItem';
-import type SteamId from 'steamid';
+import { ETradeOfferState } from 'steam-user';
+import CEconItem from 'steamcommunity/classes/CEconItem';
+import SteamId from 'steamid';
 
 /**
  * @link https://github.com/DoctorMcKay/node-steam-tradeoffer-manager/wiki/TradeOffer#properties
@@ -28,4 +28,3 @@ export type TradeOfferEvent = {
   isOurOffer: boolean;
   id: string;
 };
-

@@ -1,4 +1,3 @@
-
 /**
  * The response from steam priceOverview API.
  */

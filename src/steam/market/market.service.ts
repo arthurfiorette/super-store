@@ -1,8 +1,8 @@
 import { Injectable, Logger } from '@nestjs/common';
-import type CEconItem from 'steamcommunity/classes/CEconItem';
-import type { ICurrency } from '../../common/currency';
-import type { AxiosService } from '../../web/axios.service';
-import type { ItemPrice } from './item-price.types';
+import CEconItem from 'steamcommunity/classes/CEconItem';
+import { ICurrency } from '../../common/currency';
+import { AxiosService } from '../../web/axios.service';
+import { ItemPrice } from './item-price.types';
 
 const priceOverviewUrl = 'http://steamcommunity.com/market/priceoverview';
 
@@ -10,7 +10,7 @@ const priceOverviewUrl = 'http://steamcommunity.com/market/priceoverview';
 export class MarketService {
   private readonly logger = new Logger(MarketService.name);
 
-  constructor(private axios: AxiosService) {}
+  constructor(private readonly axios: AxiosService) {}
 
   getItemPrice = async (item: CEconItem, currency: ICurrency): Promise<ItemPrice> => {
     try {

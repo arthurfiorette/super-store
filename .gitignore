@@ -9,7 +9,8 @@
 # Yarn
 .yarn
 
-# Secrets
+# Important data
+/database.db*
 /.env
 
 # Other stuff

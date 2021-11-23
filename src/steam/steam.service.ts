@@ -1,17 +1,19 @@
 import { Injectable, Logger, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
+import { EventEmitter2 } from '@nestjs/event-emitter';
 import SteamTotp from 'steam-totp';
 import TradeOfferManager from 'steam-tradeoffer-manager';
 import SteamUser, { EResult } from 'steam-user';
 import SteamCommunity from 'steamcommunity';
+import { Configuration } from '../common/configuration';
 import { fromId, ICurrency } from '../common/currency';
-import type { Configuration } from '../config/configuration';
-import type { OfferService } from './offer/offers.service';
+import { Events } from '../common/events';
 
 @Injectable()
 export class SteamService implements OnModuleDestroy, OnModuleInit {
   private readonly logger = new Logger(SteamService.name);
 
+  private _currency!: ICurrency;
   readonly client = new SteamUser({});
   readonly community = new SteamCommunity();
   readonly offerManager = new TradeOfferManager({
@@ -20,12 +22,12 @@ export class SteamService implements OnModuleDestroy, OnModuleInit {
     language: 'en'
   }) as TradeOfferManager & NodeJS.EventEmitter;
 
-  private _currency = {} as ICurrency;
-
   constructor(
     private readonly config: ConfigService<Configuration>,
-    private readonly offerService: OfferService
-  ) {
+    private readonly eventEmitter: EventEmitter2
+  ) {}
+
+  readonly onModuleInit = () => {
     // Initialization handlers
     this.client.on('webSession', this.onWebSession);
     this.client.on('wallet', this.onWallet);
@@ -36,11 +38,6 @@ export class SteamService implements OnModuleDestroy, OnModuleInit {
     this.client.on('disconnected', this.onDisconnect);
     this.client.on('steamGuard', this.onSteamGuard);
 
-    // Trade offer
-    this.offerManager.on('newOffer', this.offerService.onNewOffer);
-  }
-
-  readonly onModuleInit = () => {
     this.logger.log('Attempting to logon');
 
     this.client.logOn({
@@ -92,6 +89,8 @@ export class SteamService implements OnModuleDestroy, OnModuleInit {
 
     // TODO: Externalize a env config to change this game
     this.client.gamesPlayed(730);
+
+    this.eventEmitter.emit(Events.STEAM_LOGON, true);
   };
 
   private onDisconnect = (resultId: EResult, msg?: string | undefined) => {

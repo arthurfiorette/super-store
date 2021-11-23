@@ -1,15 +1,18 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import type { Configuration } from '../../config/configuration';
-import type { TradeOfferEvent } from '../trade-offer.types';
+import { Configuration } from '../../common/configuration';
 import { SteamService } from '../steam.service';
+import { TradeOfferEvent } from '../trade-offer.types';
 import { Reason } from './offers.reasons';
 
 @Injectable()
 export class OfferService {
   private readonly logger = new Logger(OfferService.name);
 
-  constructor(private steam: SteamService, private config: ConfigService<Configuration>) {
+  constructor(
+    private readonly steam: SteamService,
+    private readonly  config: ConfigService<Configuration>
+  ) {
     this.steam.offerManager.on('newOffer', this.onNewOffer);
   }
 
@@ -22,7 +25,7 @@ export class OfferService {
         return;
       }
 
-      this.logger.log(`Accepted trade offer ${offer.id}. ${reason}`, err);
+      this.logger.log(`Accepted trade offer ${offer.id}. ${reason}`);
     });
   };
 
@@ -35,7 +38,7 @@ export class OfferService {
         return;
       }
 
-      this.logger.log(`Declined trade offer ${offer.id}. ${reason}`, err);
+      this.logger.log(`Declined trade offer ${offer.id}. ${reason}`);
     });
   };
 
@@ -46,6 +49,7 @@ export class OfferService {
       return;
     }
 
+    // FIXME: Owners
     const ownersId: string[] | undefined = this.config.get('steamOwnerId');
     const partnerId = offer.partner.getSteamID64();
 
@@ -60,9 +64,17 @@ export class OfferService {
       return;
     }
 
-    if (offer.itemsToReceive.some((item) => !item.marketable)) {
-      await this.declineOffer(offer, Reason.UNMARKETABLE);
-      return;
+    for (const item of offer.itemsToReceive) {
+      if (!item.marketable) {
+        await this.declineOffer(offer, Reason.UNMARKETABLE);
+        return;
+      }
+
+      if (item.fraudwarnings.length > 0) {
+        this.logger.debug(`Fraud warnings: (${item.fraudwarnings.join(', ')})`);
+        await this.declineOffer(offer, Reason.FRAUD_WARNINGS);
+        return;
+      }
     }
 
     await this.acceptOffer(offer, Reason.GIFT);
