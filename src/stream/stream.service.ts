@@ -7,7 +7,7 @@ import {
   AuthenticatedEvent,
   RedemptionLatestUpdateEvent,
   UpdateEvent
-} from './types/stream';
+} from './types/events';
 
 @Injectable()
 export class StreamService implements OnModuleDestroy, OnModuleInit {

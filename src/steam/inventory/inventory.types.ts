@@ -11,6 +11,11 @@ export type InventoryContentsResponse = {
     load_failed: number;
     store_vetted: string;
     owner_only: boolean;
-    rgContents: Record<string, any>;
+    rgContexts: Record<string, any>;
   };
 };
+
+export type AppAndContext = {
+  appId: number;
+  contextId: number;
+}

@@ -1,6 +1,8 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
+import { EventEmitter2 } from '@nestjs/event-emitter';
 import { Configuration } from '../../common/configuration';
+import { Events } from '../../common/events';
 import { SteamService } from '../steam.service';
 import { TradeOfferEvent } from '../trade-offer.types';
 import { Reason } from './offers.reasons';
@@ -11,7 +13,8 @@ export class OfferService {
 
   constructor(
     private readonly steam: SteamService,
-    private readonly  config: ConfigService<Configuration>
+    private readonly  config: ConfigService<Configuration>,
+    private eventEmitter: EventEmitter2
   ) {
     this.steam.offerManager.on('newOffer', this.onNewOffer);
   }
@@ -24,6 +27,8 @@ export class OfferService {
         this.logger.error(`Error accepting offer ${offer.id}`, err);
         return;
       }
+
+      this.eventEmitter.emit(Events.INVENTORY_UPDATED);
 
       this.logger.log(`Accepted trade offer ${offer.id}. ${reason}`);
     });

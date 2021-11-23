@@ -13,7 +13,7 @@
     "build": "nest build",
     "start": "nest start",
     "dev": "nest start --watch",
-    "debug": "nest start --debug --watch",
+    "debug": "nest start --debug",
     "lint": "tsc --noEmit",
     "prettify": "prettier --write .",
     "postinstall": "declarator"
@@ -34,7 +34,8 @@
     "steam-totp": "^2.1.1",
     "steam-tradeoffer-manager": "^2.10.3",
     "steam-user": "^4.20.0",
-    "steamcommunity": "^3.43.1"
+    "steamcommunity": "^3.43.1",
+    "typed-core": "^1.3.0"
   },
   "devDependencies": {
     "@arthurfiorette/prettier-config": "^1.0.6",

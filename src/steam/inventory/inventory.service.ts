@@ -1,58 +1,95 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { OnEvent } from '@nestjs/event-emitter';
 import { CallbackError } from 'steamcommunity';
+import CEconItem from 'steamcommunity/classes/CEconItem';
 import { Events } from '../../common/events';
-//import { ConfigService } from '@nestjs/config';
-//import { Configuration } from '../../config/configuration';
 import { SteamService } from '../steam.service';
-import { InventoryContentsResponse } from './inventory.types';
+import { AppAndContext, InventoryContentsResponse } from './inventory.types';
+import {Promises} from 'typed-core'
 
 @Injectable()
 export class InventoryService {
   private readonly logger = new Logger(InventoryService.name);
 
-  /** available after Events.STEAM_LOGON */
-  inventoryContexts!: string[];
+  /**
+   * An array with all appId and their respective contextId.
+   *
+   * Structured this way because each appId may have multiple contexts
+   */
+  inventories: AppAndContext[] = [];
+
+  private contextReady = Promises.deferred<void>();
 
   constructor(
     private readonly steam: SteamService //private readonly config: ConfigService<Configuration>
   ) {}
 
   @OnEvent(Events.STEAM_LOGON)
-  @OnEvent(Events.INVENTORY_NEEDS_UPDATE)
-  public getInventoryContents() {
-    const id = this.steam.client.steamID!;
-
-    this.steam.community.getUserInventoryContexts(
-      id,
-      //@ts-expect-error
-      this.onInventoryContexts
-    );
-
-    this.logger.log(`Got inventory contexts`);
-
-    // for (const contextId of this.inventoryContexts) {
-    //   this.steam.community.getUserInventoryContents(
-    //     id,
-    //     contextId,
-    //     true,
-    //     undefined,
-    //     //@ts-expect-error
-    //     (err: any, inventory: CEconItem, currencies: CEconItem) => {}
-    //   );
-    // }
-  }
-
-  private onInventoryContexts = (
-    err: CallbackError,
-    result: InventoryContentsResponse
-  ) => {
-    if (err) {
-      this.logger.error(`Occurred and error while getting inventory contexts`, err);
+  @OnEvent(Events.INVENTORY_UPDATED)
+  async loadInventoryContexts() {
+    let contexts: InventoryContentsResponse;
+    try {
+      contexts = await new Promise((res, rej) => {
+        this.steam.community.getUserInventoryContexts(
+          this.steam.client.steamID!,
+          //@ts-expect-error
+          (err: CallbackError, data: InventoryContentsResponse) => {
+            if (err) rej(err);
+            else res(data);
+          }
+        );
+      });
+    } catch (err) {
+      this.logger.error(`Could not retrieve user contexts`, err);
+      return;
     }
 
-    console.log(result)
+    this.inventories = [];
 
-    this.inventoryContexts = Object.keys(result);
+    for (const { appid, rgContexts } of Object.values(contexts)) {
+      for (const { id } of Object.values(rgContexts)) {
+        this.inventories.push({ appId: appid, contextId: id });
+      }
+    }
+
+    this.contextReady.resolve(void 0);
+  }
+
+  /** Commodities items are not grouped together. */
+  readonly getAllTradableItems = async () => {
+    await this.contextReady;
+
+    const userId = this.steam.client.steamID!;
+    const items = [] as CEconItem[];
+
+    for (const { appId, contextId } of this.inventories) {
+      const [inventory] = await new Promise<[CEconItem[], CEconItem[]]>((res) => {
+        // Declarator won't help here
+        (this.steam.community.getUserInventoryContents as Function)(
+          userId,
+          appId,
+          contextId,
+          true,
+          //@ts-expect-error
+          (err, inventory, currencies) => {
+            if (err) {
+              this.logger.error(
+                `Could not retrieve inventory for AppId: ${appId} & CtxId: ${contextId}`,
+                err
+              );
+              return;
+            }
+
+            res([inventory, currencies]);
+          }
+        );
+      });
+
+      items.push(...inventory);
+    }
+
+    this.logger.debug(`Retrieved ${items.length} items from the user inventory`);
+
+    return items;
   };
 }
