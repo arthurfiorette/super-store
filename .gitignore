@@ -1,6 +1,17 @@
+# Nodejs
 /node_modules
-/.vscode
-/.env
 /dist
+
+# Editors
+.vscode/*
+!.vscode/launch.json
+
+# Yarn
+.yarn
+
+# Secrets
+/.env
+
+# Other stuff
 /src.old
 .log

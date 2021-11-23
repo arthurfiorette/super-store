@@ -1,11 +1,12 @@
 import { Injectable, Logger, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { fromId, ICurrency } from 'src/common/currency';
-import { Configuration } from 'src/config/configuration';
 import SteamTotp from 'steam-totp';
 import TradeOfferManager from 'steam-tradeoffer-manager';
 import SteamUser, { EResult } from 'steam-user';
 import SteamCommunity from 'steamcommunity';
+import { fromId, ICurrency } from '../common/currency';
+import type { Configuration } from '../config/configuration';
+import type { OfferService } from './offer/offers.service';
 
 @Injectable()
 export class SteamService implements OnModuleDestroy, OnModuleInit {
@@ -21,7 +22,10 @@ export class SteamService implements OnModuleDestroy, OnModuleInit {
 
   private _currency = {} as ICurrency;
 
-  constructor(private config: ConfigService<Configuration>) {
+  constructor(
+    private readonly config: ConfigService<Configuration>,
+    private readonly offerService: OfferService
+  ) {
     // Initialization handlers
     this.client.on('webSession', this.onWebSession);
     this.client.on('wallet', this.onWallet);
@@ -31,9 +35,12 @@ export class SteamService implements OnModuleDestroy, OnModuleInit {
     this.client.on('loggedOn', this.onLogin);
     this.client.on('disconnected', this.onDisconnect);
     this.client.on('steamGuard', this.onSteamGuard);
+
+    // Trade offer
+    this.offerManager.on('newOffer', this.offerService.onNewOffer);
   }
 
-  onModuleInit = () => {
+  readonly onModuleInit = () => {
     this.logger.log('Attempting to logon');
 
     this.client.logOn({
@@ -44,7 +51,7 @@ export class SteamService implements OnModuleDestroy, OnModuleInit {
     });
   };
 
-  onModuleDestroy = () => {
+  readonly onModuleDestroy = () => {
     this.logger.log('Attempting to logoff');
     this.client.logOff();
   };
@@ -101,7 +108,7 @@ export class SteamService implements OnModuleDestroy, OnModuleInit {
     this.logger.debug(`Requested steam guard. Returned ${auth}`);
   };
 
-  getAuthCode = (): string => {
+  readonly getAuthCode = (): string => {
     const secret = this.config.get('steamSharedSecret')!;
     const code = SteamTotp.generateAuthCode(secret);
     this.logger.debug(`Generating steam guard code: ${code}`);

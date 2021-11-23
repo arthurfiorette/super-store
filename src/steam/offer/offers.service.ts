@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { TradeOffer } from 'src/common/steam.types';
-import { Configuration } from 'src/config/configuration';
+import type { Configuration } from '../../config/configuration';
+import type { TradeOfferEvent } from '../../types/trade-offer';
 import { SteamService } from '../steam.service';
 import { Reason } from './offers.reasons';
 
@@ -13,7 +13,7 @@ export class OfferService {
     this.steam.offerManager.on('newOffer', this.onNewOffer);
   }
 
-  private acceptOffer = async (offer: TradeOffer, reason: Reason) => {
+  private acceptOffer = async (offer: TradeOfferEvent, reason: Reason) => {
     this.logger.log(`Accepting offer ${offer.id}`);
 
     await offer.accept((err) => {
@@ -26,7 +26,7 @@ export class OfferService {
     });
   };
 
-  private declineOffer = async (offer: TradeOffer, reason: Reason) => {
+  private declineOffer = async (offer: TradeOfferEvent, reason: Reason) => {
     this.logger.log(`Declining offer ${offer.id}`);
 
     await offer.decline((err) => {
@@ -39,14 +39,14 @@ export class OfferService {
     });
   };
 
-  private onNewOffer = async (offer: TradeOffer) => {
+  readonly onNewOffer = async (offer: TradeOfferEvent) => {
     if (offer.isGlitched()) {
       this.logger.error(`Offer ${offer.id} is glitched`);
       await this.declineOffer(offer, Reason.GLITCHED);
       return;
     }
 
-    const ownersId = this.config.get('steamOwnerId', { infer: true });
+    const ownersId: string[] | undefined = this.config.get('steamOwnerId');
     const partnerId = offer.partner.getSteamID64();
 
     // The owner send that trade, accept it.

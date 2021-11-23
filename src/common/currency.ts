@@ -68,5 +68,6 @@ export const fromId = (id: number): ICurrency | null => {
       return Currency[name as CurrencyIdKey];
     }
   }
+
   return null;
 };

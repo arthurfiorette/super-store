@@ -15,6 +15,9 @@ export type ItemPrice = {
   median_price?: number;
 };
 
+/**
+ * @link https://github.com/DoctorMcKay/node-steam-tradeoffer-manager/wiki/TradeOffer#properties
+ */
 export type TradeOffer = {
   isGlitched: () => boolean;
   accept: (err?: (err: null | Error) => void) => void;
