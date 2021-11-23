@@ -1,7 +1,8 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { AxiosService } from 'src/web/axios.service';
-import { ICurrency } from '../../common/currency';
-import { ItemPrice, SteamItem } from '../../common/steam.types';
+import type CEconItem from 'steamcommunity/classes/CEconItem';
+import type { ICurrency } from '../../common/currency';
+import type { AxiosService } from '../../web/axios.service';
+import type { ItemPrice } from './item-price.types';
 
 const priceOverviewUrl = 'http://steamcommunity.com/market/priceoverview';
 
@@ -11,7 +12,7 @@ export class MarketService {
 
   constructor(private axios: AxiosService) {}
 
-  getItemPrice = async (item: SteamItem, currency: ICurrency): Promise<ItemPrice> => {
+  getItemPrice = async (item: CEconItem, currency: ICurrency): Promise<ItemPrice> => {
     try {
       const { data } = await this.axios.request({
         method: 'get',
@@ -22,8 +23,10 @@ export class MarketService {
           market_hash_name: this.findHashName(item)
         }
       });
+
       this.logger.debug(`Retrieved item price for ${item.market_hash_name}`);
-      return this.parseData(data, currency.parse);
+
+      return this.parseData(data, currency);
     } catch (e) {
       this.logger.error(e);
 
@@ -31,21 +34,16 @@ export class MarketService {
     }
   };
 
-  private findHashName = ({ market_name, market_hash_name, name }: SteamItem): string => {
-    const notEmpty = (str: string) => str && str.length > 0;
-
-    if (notEmpty(market_hash_name)) return market_hash_name;
-    if (notEmpty(market_name)) return market_name;
-
-    return name;
+  private findHashName = ({ name, market_hash_name }: CEconItem): string => {
+    return market_hash_name?.length > 0 ? market_hash_name : name;
   };
 
   private parseData = (
     { success, lowest_price, median_price }: any,
-    parse: ICurrency['parse']
+    { parse }: ICurrency
   ): ItemPrice => {
     return {
-      success,
+      success: success == 'true',
       lowest_price: parse(lowest_price),
       median_price: median_price ? parse(median_price) : undefined
     };

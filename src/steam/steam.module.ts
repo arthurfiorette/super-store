@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { WebModule } from 'src/web/web.module';
+import { WebModule } from '../web/web.module';
 import { MarketService } from './market/market.service';
 import { OfferService } from './offer/offers.service';
 import { SteamService } from './steam.service';

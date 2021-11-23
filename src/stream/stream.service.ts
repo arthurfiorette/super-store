@@ -1,9 +1,9 @@
 import { Injectable, Logger, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import io from 'socket.io-client';
-import { Configuration } from 'src/config/configuration';
-import { StreamElementsSocket } from './types/socket';
-import {
+import type { Configuration } from '../config/configuration';
+import type { StreamElementsSocket } from './types/socket';
+import type {
   AuthenticatedEvent,
   RedemptionLatestUpdateEvent,
   UpdateEvent

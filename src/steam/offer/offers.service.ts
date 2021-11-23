@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import type { Configuration } from '../../config/configuration';
-import type { TradeOfferEvent } from '../../types/trade-offer';
+import type { TradeOfferEvent } from '../trade-offer.types';
 import { SteamService } from '../steam.service';
 import { Reason } from './offers.reasons';
 

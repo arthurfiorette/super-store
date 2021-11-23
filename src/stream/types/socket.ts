@@ -1,5 +1,5 @@
 // import { Socket } from 'socket.io-client';
-import { AuthenticatedEvent, UnauthorizedEvent, UpdateEvent } from './stream';
+import type { AuthenticatedEvent, UnauthorizedEvent, UpdateEvent } from './stream';
 
 type Events = {
   'event:update': UpdateEvent;

@@ -1,4 +1,4 @@
-import { CurrencyIdKey } from 'src/common/currency';
+import type { CurrencyIdKey } from '../common/currency';
 
 export type Configuration = {
   seUserId: string;
