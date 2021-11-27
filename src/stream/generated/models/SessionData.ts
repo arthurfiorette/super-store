@@ -1,0 +1,82 @@
+/* istanbul ignore file */
+/* tslint:disable */
+/* eslint-disable */
+
+import type { Amount } from './Amount';
+import type { AmountRecent } from './AmountRecent';
+import type { CheerLatest } from './CheerLatest';
+import type { Count } from './Count';
+import type { FollowerLatest } from './FollowerLatest';
+import type { FollowerRecent } from './FollowerRecent';
+import type { SubscriberGiftedLatest } from './SubscriberGiftedLatest';
+import type { SubscriberLatest } from './SubscriberLatest';
+import type { SubscriberNewLatest } from './SubscriberNewLatest';
+import type { SubscriberRecent } from './SubscriberRecent';
+import type { SubscriberResubLatest } from './SubscriberResubLatest';
+import type { TipLatest } from './TipLatest';
+import type { TopUserAmount } from './TopUserAmount';
+
+export type SessionData = {
+    'follower-latest': FollowerLatest;
+    'follower-session': Count;
+    'follower-week': Count;
+    'follower-month': Count;
+    'follower-goal': Amount;
+    'follower-total': Count;
+    'subscriber-latest': SubscriberLatest;
+    'subscriber-new-latest': SubscriberNewLatest;
+    'subscriber-resub-latest': SubscriberResubLatest;
+    'subscriber-gifted-latest': SubscriberGiftedLatest;
+    'subscriber-session': Count;
+    'subscriber-new-session': Count;
+    'subscriber-resub-session': Count;
+    'subscriber-gifted-session': Count;
+    'subscriber-week': Count;
+    'subscriber-month': Count;
+    'subscriber-goal': Amount;
+    'subscriber-total': Count;
+    'subscriber-points': Amount;
+    'subscriber-alltime-gifter': TopUserAmount;
+    'host-latest': AmountRecent;
+    'raid-latest': AmountRecent;
+    'cheer-session': Amount;
+    'cheer-week': Amount;
+    'cheer-month': Amount;
+    'cheer-total': Amount;
+    'cheer-count': Count;
+    'cheer-goal': Amount;
+    'cheer-latest': CheerLatest;
+    'cheer-session-top-donation': TopUserAmount;
+    'cheer-weekly-top-donation': TopUserAmount;
+    'cheer-monthly-top-donation': TopUserAmount;
+    'cheer-alltime-top-donation': TopUserAmount;
+    'cheer-session-top-donator': TopUserAmount;
+    'cheer-weekly-top-donator': TopUserAmount;
+    'cheer-monthly-top-donator': TopUserAmount;
+    'cheer-alltime-top-donator': TopUserAmount;
+    'tip-latest': TipLatest;
+    'tip-session-top-donation': TopUserAmount;
+    'tip-weekly-top-donation': TopUserAmount;
+    'tip-monthly-top-donation': TopUserAmount;
+    'tip-alltime-top-donation': TopUserAmount;
+    'tip-session-top-donator': TopUserAmount;
+    'tip-weekly-top-donator': TopUserAmount;
+    'tip-monthly-top-donator': TopUserAmount;
+    'tip-alltime-top-donator': TopUserAmount;
+    'tip-session': Amount;
+    'tip-week': Amount;
+    'tip-month': Amount;
+    'tip-total': Amount;
+    'tip-count': Count;
+    'tip-goal': Amount;
+    'merch-goal-orders': Amount;
+    'merch-goal-items': Amount;
+    'merch-goal-total': Amount;
+    'follower-recent': Array<FollowerRecent>;
+    'subscriber-recent': Array<SubscriberRecent>;
+    'host-recent': Array<AmountRecent>;
+    'raid-recent': Array<AmountRecent>;
+    'cheer-recent': Array<AmountRecent>;
+    'tip-recent': Array<AmountRecent>;
+    'merch-recent': Array<AmountRecent>;
+}

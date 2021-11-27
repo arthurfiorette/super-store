@@ -17,3 +17,6 @@ yarn-error*
 # Other stuff
 /src.old
 .log
+
+# Some random thins in my pc :)
+/ignore

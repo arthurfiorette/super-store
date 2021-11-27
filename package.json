@@ -17,14 +17,13 @@
     "lint": "tsc --noEmit",
     "prettify": "prettier --write .",
     "postinstall": "declarator",
-    "openapi:generate": "openapi-generator-cli generate"
+    "stream:gen": "openapi --input 'https://stoplight.io/api/v1/projects/streamelements/kappa/nodes/api.yaml?deref=optimizedBundle' --output './src/stream/generated' --exportCore=false --exportServices=false --useOptions --client axios"
   },
   "dependencies": {
     "@nestjs/common": "^8.0.8",
     "@nestjs/config": "^1.0.1",
     "@nestjs/core": "^8.0.8",
     "@nestjs/event-emitter": "^1.0.0",
-    "@openapitools/openapi-generator-cli": "^2.4.18",
     "@prisma/client": "^3.5.0",
     "axios": "^0.24.0",
     "axios-cache-interceptor": "^0.6.2",
@@ -51,6 +50,7 @@
     "@types/steamcommunity": "^3.43.1",
     "declarator": "^1.2.2",
     "husky": "^7.0.2",
+    "openapi-typescript-codegen": "^0.12.3",
     "prettier": "2.4.1",
     "prettier-plugin-organize-imports": "^2.3.4",
     "prisma": "^3.1.1",

@@ -32,12 +32,10 @@
 
 ## Development
 
-### Generating StreamElements API Code
+### Updating StreamElements API Code
 
-Make sure to have java installed.
-
-Run 
+As the code used to connect and interact with StreamElements is auto-generated, you can run the following to update it.
 
 ```sh
-npm run generate
+npm run stream:gen
 ```

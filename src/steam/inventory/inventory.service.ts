@@ -56,13 +56,17 @@ export class InventoryService {
   }
 
   /** Commodities items are not grouped together. */
-  readonly getAllTradableItems = async () => {
+  readonly getAllTradableItems = async (ignoreAppIds: number[] = []) => {
     await this.contextReady;
 
     const userId = this.steam.client.steamID!;
     const items = [] as CEconItem[];
 
     for (const { appId, contextId } of this.inventories) {
+      if(ignoreAppIds.includes(appId)) {
+        continue;
+      }
+
       const [inventory] = await new Promise<[CEconItem[], CEconItem[]]>((res) => {
         // Declarator won't help here
         (this.steam.community.getUserInventoryContents as Function)(

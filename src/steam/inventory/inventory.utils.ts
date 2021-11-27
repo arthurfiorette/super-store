@@ -5,15 +5,15 @@ export const groupCommodities = (items: CEconItem[]): CEconItem[] => {
 
   const withoutCommodities = items.filter((item) => {
     if (!item.commodity) {
-      return false;
+      return true;
     }
 
-    const key = item.market_hash_name + item.assetid;
+    const key = item.market_hash_name + item.classid;
 
     commodities[key] ||= [];
     commodities[key]?.push(item);
 
-    return true;
+    return false;
   });
 
   for (const commodity of Object.values(commodities)) {

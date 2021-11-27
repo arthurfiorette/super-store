@@ -12,6 +12,7 @@ export type Configuration = {
   steamOwnerId: string[];
   pricesCurrency: CurrencyIdKey;
   pricesCurrencyValue: number;
+  ignoreAppIds: number[];
 };
 
 const get = (
@@ -36,6 +37,10 @@ export const configuration = (): Configuration => {
     steamIdentitySecret: get('STEAM_IDENTITY', { required: true }),
     steamOwnerId: get('STEAM_OWNER_IDS', { default: '' }).trim().split(','),
     pricesCurrency: get('PRICES_CURRENCY', { default: 'BRL' }) as CurrencyIdKey,
-    pricesCurrencyValue: parseInt(get('PRICES_CURRENCY_VALUE', { default: '1000' }))
+    pricesCurrencyValue: Number(get('PRICES_CURRENCY_VALUE', { default: '1000' })),
+    ignoreAppIds: get('IGNORE_APPIDS', { default: '753' /** Steam app id */ })
+      .trim()
+      .split(',')
+      .map((v) => Number(v))
   };
 };

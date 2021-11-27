@@ -11,7 +11,7 @@ import { Events } from '../common/events';
 
 @Injectable()
 export class SteamService implements OnModuleDestroy, OnModuleInit {
-  private readonly logger = new Logger(SteamService.name);
+  private readonly logger = new Logger(this.constructor.name);
 
   private _currency!: ICurrency;
   readonly client = new SteamUser({});

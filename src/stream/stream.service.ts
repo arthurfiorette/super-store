@@ -1,42 +1,48 @@
-import { Injectable, Logger, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
+import {
+  Inject,
+  Injectable,
+  Logger,
+  OnModuleDestroy,
+  OnModuleInit
+} from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
+import { AxiosCacheInstance } from 'axios-cache-interceptor';
 import io from 'socket.io-client';
 import { Configuration } from '../common/configuration';
-import { AxiosService } from '../web/axios.service';
-import { SEApi } from './stream.api';
+import { StoreStreamApi } from './api';
 import {
   AuthenticatedEvent,
   RedemptionLatestUpdateEvent,
+  StreamElementsSocket,
   UpdateEvent
-} from './types/events';
-import { StreamElementsSocket } from './types/socket';
+} from './socket-types';
 
 @Injectable()
 export class StreamService implements OnModuleDestroy, OnModuleInit {
-  private readonly logger = new Logger(StreamService.name);
+  private readonly logger = new Logger(this.constructor.name);
 
-  private socket: StreamElementsSocket;
+  private readonly socket: StreamElementsSocket;
 
-  readonly api;
+  readonly store: StoreStreamApi;
 
   constructor(
     private readonly config: ConfigService<Configuration>,
-    private readonly axiosService: AxiosService
+    @Inject('axios')
+    private readonly axios: AxiosCacheInstance
   ) {
+    const seId = config.get('seUserId')!;
+    const seJwt = config.get('seUserJwt')!;
+
     const socketUrl = config.get('seWsUrl');
     this.socket = io(socketUrl, {
       transports: ['websocket'],
       autoConnect: false
     });
 
-    this.api = new SEApi(
-      this.axiosService.axios,
-      config.get('seUserId')!,
-      config.get('seUserJwt')!
-    );
+    this.store = new StoreStreamApi(this.axios, seId, seJwt);
   }
 
-  onModuleInit = () => {
+  public onModuleInit = () => {
     this.logger.log('Connecting to StreamElements socket');
 
     // Connection listeners
@@ -55,7 +61,7 @@ export class StreamService implements OnModuleDestroy, OnModuleInit {
     this.socket.connect();
   };
 
-  onModuleDestroy = () => {
+  public onModuleDestroy = () => {
     this.logger.log('Disconnecting to StreamElements socket');
     this.socket.disconnect();
   };

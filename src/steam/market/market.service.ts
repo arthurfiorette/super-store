@@ -1,7 +1,7 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Inject, Injectable, Logger } from '@nestjs/common';
+import { AxiosCacheInstance } from 'axios-cache-interceptor';
 import CEconItem from 'steamcommunity/classes/CEconItem';
 import { ICurrency } from '../../common/currency';
-import { AxiosService } from '../../web/axios.service';
 import { ItemPrice } from './item-price.types';
 
 const priceOverviewUrl = 'http://steamcommunity.com/market/priceoverview';
@@ -10,13 +10,14 @@ const priceOverviewUrl = 'http://steamcommunity.com/market/priceoverview';
 export class MarketService {
   private readonly logger = new Logger(MarketService.name);
 
-  constructor(private readonly axios: AxiosService) {}
+  constructor(
+    @Inject('axios')
+    private readonly axios: AxiosCacheInstance
+  ) {}
 
   getItemPrice = async (item: CEconItem, currency: ICurrency): Promise<ItemPrice> => {
     try {
-      const { data } = await this.axios.request({
-        method: 'get',
-        url: priceOverviewUrl,
+      const { data } = await this.axios.get(priceOverviewUrl, {
         params: {
           appid: item.appid,
           currency: currency.steamId,
@@ -30,7 +31,7 @@ export class MarketService {
     } catch (e) {
       this.logger.error(e);
 
-      return { success: false, lowest_price: -1 };
+      return { success: false };
     }
   };
 
@@ -42,10 +43,18 @@ export class MarketService {
     { success, lowest_price, median_price }: any,
     { parse }: ICurrency
   ): ItemPrice => {
+    if (!success) {
+      return { success };
+    }
+
+    lowest_price = parse(lowest_price);
+    median_price = median_price ? parse(median_price) : undefined;
+
     return {
-      success: success == 'true',
-      lowest_price: parse(lowest_price),
-      median_price: median_price ? parse(median_price) : undefined
+      success,
+      lowest_price,
+      median_price,
+      highest_price: lowest_price > median_price ? lowest_price : median_price
     };
   };
 }
