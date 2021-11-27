@@ -5,7 +5,7 @@ import {
   CacheAxiosResponse,
   CacheRequestConfig
 } from 'axios-cache-interceptor';
-import { merge } from 'lodash';
+import merge from 'lodash.merge';
 
 export type ApiResult<D> = Promise<
   | {
