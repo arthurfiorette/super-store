@@ -3,8 +3,8 @@ import { ConfigModule } from '@nestjs/config';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { configuration } from './common/configuration';
 import { SteamModule } from './steam/steam.module';
-import { StoreModule } from './store/store.module';
 import { StorageModule } from './storage/storage.module';
+import { StoreModule } from './store/store.module';
 import { StreamModule } from './stream/stream.module';
 import { WebModule } from './web/web.module';
 
@@ -20,7 +20,7 @@ import { WebModule } from './web/web.module';
     StorageModule,
     SteamModule,
     StreamModule,
-    StoreModule,
+    StoreModule
   ]
 })
 export class AppModule {}

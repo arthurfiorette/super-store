@@ -2,12 +2,9 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class StorageService {
-  constructor() // private readonly prisma: PrismaService
-  {}
-
+  // constructor() {} // private readonly prisma: PrismaService
   // readonly saveItems = async (items: CEconItem[]) => {
   //   // CreateMany does not work with SQLite
-
   //   for (const item of items) {
   //     await this.prisma.inventoryItem.create({
   //       data: {
@@ -22,12 +19,10 @@ export class StorageService {
   //       }
   //     });
   //   }
-
   //   // const batch = items.map((item) =>
   //   //   this.prisma.steamItem.create(this.toSteamItem(item))
   //   // );
   // };
-
   // private readonly toSteamItem = (item: CEconItem): SteamItem => {
   //   return {
   //     amount: item.amount,

@@ -9,6 +9,6 @@ import { SteamService } from './steam.service';
 @Module({
   providers: [SteamService, MarketService, OfferService, InventoryService],
   exports: [SteamService, MarketService, InventoryService],
-  imports: [ConfigModule, WebModule],
+  imports: [ConfigModule, WebModule]
 })
 export class SteamModule {}

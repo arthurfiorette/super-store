@@ -2,10 +2,10 @@ import { Injectable, Logger } from '@nestjs/common';
 import { OnEvent } from '@nestjs/event-emitter';
 import { CallbackError } from 'steamcommunity';
 import CEconItem from 'steamcommunity/classes/CEconItem';
+import { Promises } from 'typed-core';
 import { Events } from '../../common/events';
 import { SteamService } from '../steam.service';
 import { AppAndContext, InventoryContentsResponse } from './inventory.types';
-import {Promises} from 'typed-core'
 
 @Injectable()
 export class InventoryService {
@@ -21,7 +21,7 @@ export class InventoryService {
   private contextReady = Promises.deferred<void>();
 
   constructor(
-    private readonly steam: SteamService //private readonly config: ConfigService<Configuration>
+    private readonly steam: SteamService // private readonly config: ConfigService<Configuration>
   ) {}
 
   @OnEvent(Events.STEAM_LOGON)
@@ -32,7 +32,7 @@ export class InventoryService {
       contexts = await new Promise((res, rej) => {
         this.steam.community.getUserInventoryContexts(
           this.steam.client.steamID!,
-          //@ts-expect-error
+          // @ts-expect-error Declarator won't help here
           (err: CallbackError, data: InventoryContentsResponse) => {
             if (err) rej(err);
             else res(data);
@@ -63,18 +63,19 @@ export class InventoryService {
     const items = [] as CEconItem[];
 
     for (const { appId, contextId } of this.inventories) {
-      if(ignoreAppIds.includes(appId)) {
+      if (ignoreAppIds.includes(appId)) {
         continue;
       }
 
       const [inventory] = await new Promise<[CEconItem[], CEconItem[]]>((res) => {
         // Declarator won't help here
+        // eslint-disable-next-line @typescript-eslint/ban-types
         (this.steam.community.getUserInventoryContents as Function)(
           userId,
           appId,
           contextId,
           true,
-          //@ts-expect-error
+          // @ts-expect-error Declarator won't help here
           (err, inventory, currencies) => {
             if (err) {
               this.logger.error(

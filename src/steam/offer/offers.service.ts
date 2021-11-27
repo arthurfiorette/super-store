@@ -13,7 +13,7 @@ export class OfferService {
 
   constructor(
     private readonly steam: SteamService,
-    private readonly  config: ConfigService<Configuration>,
+    private readonly config: ConfigService<Configuration>,
     private eventEmitter: EventEmitter2
   ) {
     this.steam.offerManager.on('newOffer', this.onNewOffer);

@@ -18,4 +18,4 @@ export type InventoryContentsResponse = {
 export type AppAndContext = {
   appId: number;
   contextId: number;
-}
+};
