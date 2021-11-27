@@ -30,6 +30,10 @@
 
 ## Table of Contents
 
+- [Table of Contents](#table-of-contents)
+- [Development](#development)
+  - [Updating StreamElements API Code](#updating-streamelements-api-code)
+
 ## Development
 
 ### Updating StreamElements API Code
