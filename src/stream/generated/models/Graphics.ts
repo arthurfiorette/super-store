@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type Graphics = {
-    src: string | null;
-    type: string;
-}
+  src: string | null;
+  type: string;
+};

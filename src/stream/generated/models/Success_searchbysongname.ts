@@ -3,7 +3,7 @@
 /* eslint-disable */
 
 export type Success_searchbysongname = {
-    videoId: string;
-    thumbnail: string;
-    title: string;
-}
+  videoId: string;
+  thumbnail: string;
+  title: string;
+};

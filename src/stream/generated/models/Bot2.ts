@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type Bot2 = {
-    enabled: boolean;
-    identifier: string;
-}
+  enabled: boolean;
+  identifier: string;
+};

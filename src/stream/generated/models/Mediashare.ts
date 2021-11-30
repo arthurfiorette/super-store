@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type Mediashare = {
-    enabled: boolean;
-    costPerSecond: number;
-}
+  enabled: boolean;
+  costPerSecond: number;
+};

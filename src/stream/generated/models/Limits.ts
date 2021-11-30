@@ -5,7 +5,7 @@
 import type { Users } from './Users';
 
 export type Limits = {
-    users: Users;
-    queueLimit: number;
-    maxDuration: number;
-}
+  users: Users;
+  queueLimit: number;
+  maxDuration: number;
+};

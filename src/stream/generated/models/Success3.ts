@@ -3,5 +3,5 @@
 /* eslint-disable */
 
 export type Success3 = {
-    success: boolean;
-}
+  success: boolean;
+};

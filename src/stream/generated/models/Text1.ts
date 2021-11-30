@@ -5,8 +5,8 @@
 import type { TextCSS } from './TextCSS';
 
 export type Text1 = {
-    animation: string;
-    css: TextCSS;
-    enableShadow: boolean;
-    message: string;
-}
+  animation: string;
+  css: TextCSS;
+  enableShadow: boolean;
+  message: string;
+};

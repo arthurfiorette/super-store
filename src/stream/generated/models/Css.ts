@@ -3,10 +3,10 @@
 /* eslint-disable */
 
 export type Css = {
-    'z-index': number;
-    top: string;
-    left: string;
-    width: string;
-    height: string;
-    opacity: number;
-}
+  'z-index': number;
+  top: string;
+  left: string;
+  width: string;
+  height: string;
+  opacity: number;
+};

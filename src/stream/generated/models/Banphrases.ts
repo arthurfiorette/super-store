@@ -3,5 +3,5 @@
 /* eslint-disable */
 
 export type Banphrases = {
-    enabled: boolean;
-}
+  enabled: boolean;
+};

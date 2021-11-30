@@ -2,9 +2,11 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { configuration } from './common/configuration';
+import { DeliverModule } from './deliver/deliver.module';
+import { MessengerModule } from './messenger/messenger.module';
+import { SellerModule } from './seller/seller.module';
 import { SteamModule } from './steam/steam.module';
 import { StorageModule } from './storage/storage.module';
-import { StoreModule } from './store/store.module';
 import { StreamModule } from './stream/stream.module';
 import { WebModule } from './web/web.module';
 
@@ -20,7 +22,9 @@ import { WebModule } from './web/web.module';
     StorageModule,
     SteamModule,
     StreamModule,
-    StoreModule
+    SellerModule,
+    MessengerModule,
+    DeliverModule
   ]
 })
 export class AppModule {}

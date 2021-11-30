@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type Success1 = {
-    total: number;
-    username: string;
-}
+  total: number;
+  username: string;
+};

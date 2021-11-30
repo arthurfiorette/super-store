@@ -3,7 +3,7 @@
 /* eslint-disable */
 
 export type TopUserAmount = {
-    name: string;
-    amount: number;
-    message?: string;
-}
+  name: string;
+  amount: number;
+  message?: string;
+};

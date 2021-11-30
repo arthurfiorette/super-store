@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type Detail = {
-    path: Array<string>;
-    message: string;
-}
+  path: Array<string>;
+  message: string;
+};

@@ -3,5 +3,5 @@
 /* eslint-disable */
 
 export type Css6 = {
-    'margin-top': number;
-}
+  'margin-top': number;
+};

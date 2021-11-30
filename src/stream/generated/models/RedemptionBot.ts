@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type RedemptionBot = {
-    enabled: boolean;
-    message: string;
-}
+  enabled: boolean;
+  message: string;
+};

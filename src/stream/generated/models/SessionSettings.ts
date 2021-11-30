@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type SessionSettings = {
-    autoReset: boolean;
-    calendar: boolean;
-}
+  autoReset: boolean;
+  calendar: boolean;
+};

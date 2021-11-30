@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type Scrolling = {
-    direction: string;
-    speed: number;
-}
+  direction: string;
+  speed: number;
+};

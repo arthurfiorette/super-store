@@ -5,5 +5,5 @@
 import type { Bot } from './Bot';
 
 export type BotSettings = {
-    bot: Bot;
-}
+  bot: Bot;
+};

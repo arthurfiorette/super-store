@@ -2,7 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { OnEvent } from '@nestjs/event-emitter';
 import { CallbackError } from 'steamcommunity';
 import CEconItem from 'steamcommunity/classes/CEconItem';
-import { Promises } from 'typed-core';
+import { deferred } from 'typed-core';
 import { Events } from '../../common/events';
 import { SteamService } from '../steam.service';
 import { AppAndContext, InventoryContentsResponse } from './inventory.types';
@@ -18,7 +18,7 @@ export class InventoryService {
    */
   inventories: AppAndContext[] = [];
 
-  private contextReady = Promises.deferred<void>();
+  private contextReady = deferred<void>();
 
   constructor(
     private readonly steam: SteamService // private readonly config: ConfigService<Configuration>

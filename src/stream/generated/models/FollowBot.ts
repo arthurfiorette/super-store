@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type FollowBot = {
-    enabled: boolean;
-    messages: Array<string>;
-}
+  enabled: boolean;
+  messages: Array<string>;
+};

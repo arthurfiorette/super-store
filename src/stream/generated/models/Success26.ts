@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type Success26 = {
-    statusCode: number;
-    message: string;
-}
+  statusCode: number;
+  message: string;
+};

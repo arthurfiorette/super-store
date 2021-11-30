@@ -38,7 +38,8 @@
 
 ### Updating StreamElements API Code
 
-As the code used to connect and interact with StreamElements is auto-generated, you can run the following to update it.
+As the code used to connect and interact with StreamElements is auto-generated, you can
+run the following to update it.
 
 ```sh
 npm run stream:gen

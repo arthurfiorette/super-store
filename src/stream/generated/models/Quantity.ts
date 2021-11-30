@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type Quantity = {
-    total: number;
-    current?: number;
-}
+  total: number;
+  current?: number;
+};

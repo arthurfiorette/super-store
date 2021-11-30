@@ -10,14 +10,14 @@ import type { Tts } from './Tts';
 import type { Variation } from './Variation';
 
 export type Subscriber1 = {
-    enableRandomPick: boolean;
-    enabled: boolean;
-    duration: number;
-    layout: string;
-    text: Text1;
-    graphics: Graphics;
-    audio: Audio1;
-    animation: Animation;
-    variations: Array<Variation>;
-    tts: Tts;
-}
+  enableRandomPick: boolean;
+  enabled: boolean;
+  duration: number;
+  layout: string;
+  text: Text1;
+  graphics: Graphics;
+  audio: Audio1;
+  animation: Animation;
+  variations: Array<Variation>;
+  tts: Tts;
+};

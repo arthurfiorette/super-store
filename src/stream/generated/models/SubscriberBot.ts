@@ -5,6 +5,6 @@
 import type { AdditionalMessagesBot } from './AdditionalMessagesBot';
 
 export type SubscriberBot = {
-    enabled: boolean;
-    messages: Array<AdditionalMessagesBot>;
-}
+  enabled: boolean;
+  messages: Array<AdditionalMessagesBot>;
+};

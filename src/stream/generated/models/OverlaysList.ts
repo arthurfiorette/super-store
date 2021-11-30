@@ -5,6 +5,6 @@
 import type { OverlayData } from './OverlayData';
 
 export type OverlaysList = {
-    total: number;
-    docs: Array<OverlayData>;
-}
+  total: number;
+  docs: Array<OverlayData>;
+};

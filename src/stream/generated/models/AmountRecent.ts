@@ -3,7 +3,7 @@
 /* eslint-disable */
 
 export type AmountRecent = {
-    name: string;
-    amount: number;
-    createdAt?: string;
-}
+  name: string;
+  amount: number;
+  createdAt?: string;
+};

@@ -5,6 +5,6 @@
 import type { PyramidMessages } from './PyramidMessages';
 
 export type Pyramid = {
-    enabled: boolean;
-    messages: Array<PyramidMessages>;
-}
+  enabled: boolean;
+  messages: Array<PyramidMessages>;
+};

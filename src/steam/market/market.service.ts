@@ -39,22 +39,20 @@ export class MarketService {
     return market_hash_name?.length > 0 ? market_hash_name : name;
   };
 
-  private parseData = (
-    { success, lowest_price, median_price }: any,
-    { parse }: ICurrency
-  ): ItemPrice => {
+  private parseData = ({ success, ...prices }: any, { parse }: ICurrency): ItemPrice => {
     if (!success) {
       return { success };
     }
 
-    lowest_price = parse(lowest_price);
-    median_price = median_price ? parse(median_price) : undefined;
+    const lowest_price = parse(prices.lowest_price);
+    const median_price = prices.median_price ? parse(prices.median_price) : undefined;
 
     return {
       success,
       lowest_price,
       median_price,
-      highest_price: lowest_price > median_price ? lowest_price : median_price
+      highest_price:
+        median_price === undefined ? lowest_price : Math.max(lowest_price, median_price)
     };
   };
 }

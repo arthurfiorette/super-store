@@ -3,5 +3,5 @@
 /* eslint-disable */
 
 export type Player = {
-    delay: number;
-}
+  delay: number;
+};

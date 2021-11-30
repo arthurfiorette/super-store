@@ -3,5 +3,5 @@
 /* eslint-disable */
 
 export type ProviderTotals = {
-    'follower-total': number;
-}
+  'follower-total': number;
+};

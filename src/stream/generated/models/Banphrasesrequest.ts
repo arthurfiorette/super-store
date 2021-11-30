@@ -3,5 +3,5 @@
 /* eslint-disable */
 
 export type Banphrasesrequest = {
-    name: string;
-}
+  name: string;
+};

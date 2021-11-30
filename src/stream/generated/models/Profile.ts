@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type Profile = {
-    headerImage: string;
-    title: string;
-}
+  headerImage: string;
+  title: string;
+};

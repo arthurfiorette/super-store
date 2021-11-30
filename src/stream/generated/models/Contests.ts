@@ -5,6 +5,6 @@
 import type { Contest } from './Contest';
 
 export type Contests = {
-    active: string | null;
-    contests: Array<Contest>;
-}
+  active: string | null;
+  contests: Array<Contest>;
+};

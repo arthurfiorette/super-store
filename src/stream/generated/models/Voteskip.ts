@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type Voteskip = {
-    enabled: boolean;
-    votesRequired: number;
-}
+  enabled: boolean;
+  votesRequired: number;
+};

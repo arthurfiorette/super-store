@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type Notfound2 = {
-    statusCode: number;
-    error: string;
-}
+  statusCode: number;
+  error: string;
+};

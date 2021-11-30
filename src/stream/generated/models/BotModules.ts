@@ -16,16 +16,16 @@ import type { Songrequest } from './Songrequest';
 import type { Twitter } from './Twitter';
 
 export type BotModules = {
-    roulette: Roulette;
-    raffle: Raffle;
-    pyramid: Pyramid;
-    bingo: Bingo;
-    slotmachine: Slotmachine;
-    duel: Duel;
-    eightball: Eightball;
-    emotecombo: Emotecombo;
-    twitter: Twitter;
-    chatalerts: Chatalerts;
-    songrequest: Songrequest;
-    announcements: Announcements;
-}
+  roulette: Roulette;
+  raffle: Raffle;
+  pyramid: Pyramid;
+  bingo: Bingo;
+  slotmachine: Slotmachine;
+  duel: Duel;
+  eightball: Eightball;
+  emotecombo: Emotecombo;
+  twitter: Twitter;
+  chatalerts: Chatalerts;
+  songrequest: Songrequest;
+  announcements: Announcements;
+};

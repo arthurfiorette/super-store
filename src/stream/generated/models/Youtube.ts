@@ -3,8 +3,8 @@
 /* eslint-disable */
 
 export type Youtube = {
-    securityLevel?: number;
-    musicOnly: boolean;
-    bannedTags?: Array<string>;
-    bannedVideos?: Array<string>;
-}
+  securityLevel?: number;
+  musicOnly: boolean;
+  bannedTags?: Array<string>;
+  bannedVideos?: Array<string>;
+};

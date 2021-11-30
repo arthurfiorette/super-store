@@ -5,9 +5,9 @@
 import type { Voteskip } from './Voteskip';
 
 export type Bot1 = {
-    voteskip: Voteskip;
-    cost: number;
-    subscriberDiscount: number;
-    exemptUserLevel: number;
-    minUserLevel: number;
-}
+  voteskip: Voteskip;
+  cost: number;
+  subscriberDiscount: number;
+  exemptUserLevel: number;
+  minUserLevel: number;
+};

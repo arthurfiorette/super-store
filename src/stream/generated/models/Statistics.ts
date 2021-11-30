@@ -3,7 +3,7 @@
 /* eslint-disable */
 
 export type Statistics = {
-    viewCount: number;
-    likeCount: number;
-    dislikeCount: number;
-}
+  viewCount: number;
+  likeCount: number;
+  dislikeCount: number;
+};

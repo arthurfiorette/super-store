@@ -5,6 +5,6 @@
 import type { Css2 } from './Css2';
 
 export type Image = {
-    type: string;
-    css: Css2;
-}
+  type: string;
+  css: Css2;
+};

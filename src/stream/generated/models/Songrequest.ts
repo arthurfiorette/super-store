@@ -5,11 +5,11 @@
 import type { Voteskip } from './Voteskip';
 
 export type Songrequest = {
-    voteskip: Voteskip;
-    enabled: boolean;
-    moderation: boolean;
-    minUserLevel: number;
-    cost: number;
-    subscriberDiscount: number;
-    exemptUserLevel: number;
-}
+  voteskip: Voteskip;
+  enabled: boolean;
+  moderation: boolean;
+  minUserLevel: number;
+  cost: number;
+  subscriberDiscount: number;
+  exemptUserLevel: number;
+};

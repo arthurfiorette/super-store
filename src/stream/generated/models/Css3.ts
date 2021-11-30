@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type Css3 = {
-    widget: number;
-    height: number;
-}
+  widget: number;
+  height: number;
+};

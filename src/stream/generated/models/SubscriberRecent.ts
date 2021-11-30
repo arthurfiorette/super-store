@@ -3,8 +3,8 @@
 /* eslint-disable */
 
 export type SubscriberRecent = {
-    name: string;
-    tier: string;
-    amount: number;
-    createdAt: string;
-}
+  name: string;
+  tier: string;
+  amount: number;
+  createdAt: string;
+};

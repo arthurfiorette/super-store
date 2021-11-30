@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type Audio = {
-    type: string;
-    volume: number;
-}
+  type: string;
+  volume: number;
+};

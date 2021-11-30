@@ -7,8 +7,18 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Trade {
-  id             Int       @id @default(autoincrement())
+// model Trade {
+//   id Int @id @default(autoincrement())
+// }
+
+/// A current item on sell at streamelements store
+model SellingItem {
+  id Int @id @default(autoincrement())
+
+  streamId String
+  steamId String
+
+  commodity Boolean
 }
 
 // model InventoryItem {

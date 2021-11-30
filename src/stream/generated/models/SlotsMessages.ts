@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type SlotsMessages = {
-    win: string;
-    lose: string;
-}
+  win: string;
+  lose: string;
+};

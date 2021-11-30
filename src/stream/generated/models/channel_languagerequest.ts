@@ -3,5 +3,5 @@
 /* eslint-disable */
 
 export type channel_languagerequest = {
-    language: string;
-}
+  language: string;
+};

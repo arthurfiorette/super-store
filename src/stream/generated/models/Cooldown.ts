@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type Cooldown = {
-    user: number;
-    global: number;
-}
+  user: number;
+  global: number;
+};

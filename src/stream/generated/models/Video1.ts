@@ -3,7 +3,7 @@
 /* eslint-disable */
 
 export type Video1 = {
-    videoId: string;
-    title: string;
-    channel: string;
-}
+  videoId: string;
+  title: string;
+  channel: string;
+};

@@ -3,7 +3,7 @@
 /* eslint-disable */
 
 export type PyramidMessages = {
-    _id: string;
-    width: number;
-    message: string;
-}
+  _id: string;
+  width: number;
+  message: string;
+};

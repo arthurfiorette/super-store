@@ -8,13 +8,13 @@ import type { Graphics } from './Graphics';
 import type { Text1 } from './Text1';
 
 export type Raid1 = {
-    enableRandomPick: boolean;
-    enabled: boolean;
-    duration: number;
-    layout: string;
-    text: Text1;
-    graphics: Graphics;
-    audio: Audio1;
-    animation: Animation;
-    variations: Array<string>;
-}
+  enableRandomPick: boolean;
+  enabled: boolean;
+  duration: number;
+  layout: string;
+  text: Text1;
+  graphics: Graphics;
+  audio: Audio1;
+  animation: Animation;
+  variations: Array<string>;
+};

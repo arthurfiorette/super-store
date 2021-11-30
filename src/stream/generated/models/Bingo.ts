@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type Bingo = {
-    enabled: boolean;
-    maxAmount: number;
-}
+  enabled: boolean;
+  maxAmount: number;
+};

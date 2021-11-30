@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type Success_empty = {
-    active: string | null;
-    giveaways: Array<string>;
-}
+  active: string | null;
+  giveaways: Array<string>;
+};

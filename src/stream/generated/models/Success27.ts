@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type Success27 = {
-    counter: string;
-    value: number;
-}
+  counter: string;
+  value: number;
+};

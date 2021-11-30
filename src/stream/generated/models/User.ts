@@ -3,7 +3,7 @@
 /* eslint-disable */
 
 export type User = {
-    user: string;
-    providerId: string;
-    role: string;
-}
+  user: string;
+  providerId: string;
+  role: string;
+};

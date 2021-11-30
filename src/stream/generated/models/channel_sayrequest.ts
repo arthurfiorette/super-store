@@ -3,5 +3,5 @@
 /* eslint-disable */
 
 export type channel_sayrequest = {
-    message: string;
-}
+  message: string;
+};

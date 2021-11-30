@@ -3,5 +3,5 @@
 /* eslint-disable */
 
 export type Highlights = {
-    color: string;
-}
+  color: string;
+};

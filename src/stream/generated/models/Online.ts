@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type Online = {
-    enabled: boolean;
-    interval: number;
-}
+  enabled: boolean;
+  interval: number;
+};

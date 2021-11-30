@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type FollowerRecent = {
-    name: string;
-    createdAt: string;
-}
+  name: string;
+  createdAt: string;
+};

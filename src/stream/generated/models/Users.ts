@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type Users = {
-    free: number;
-    paid: number;
-}
+  free: number;
+  paid: number;
+};

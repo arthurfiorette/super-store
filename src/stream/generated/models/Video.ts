@@ -5,6 +5,6 @@
 import type { Css3 } from './Css3';
 
 export type Video = {
-    type: string;
-    css: Css3;
-}
+  type: string;
+  css: Css3;
+};

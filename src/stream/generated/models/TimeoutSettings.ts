@@ -3,5 +3,5 @@
 /* eslint-disable */
 
 export type TimeoutSettings = {
-    limit: number;
-}
+  limit: number;
+};

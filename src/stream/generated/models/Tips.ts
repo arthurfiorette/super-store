@@ -5,6 +5,6 @@
 import type { Mediashare } from './Mediashare';
 
 export type Tips = {
-    mediashare: Mediashare;
-    prioritize: boolean;
-}
+  mediashare: Mediashare;
+  prioritize: boolean;
+};

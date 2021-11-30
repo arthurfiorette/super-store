@@ -1,4 +1,4 @@
-import { LoyaltyItem } from './generated';
+import { LoyaltyItem, User13 } from './generated';
 
 export type PutLoyaltyItem = Partial<
   LoyaltyItem & {
@@ -13,3 +13,16 @@ export type PutLoyaltyItem = Partial<
     };
   }
 >;
+
+export type RedemptionInfo = {
+  redeemerType: string;
+  completed: boolean;
+  input: string[];
+  _id: string;
+  channel: string;
+  redeemer: User13 & { inactive: boolean; isPartner: boolean };
+  item: Pick<LoyaltyItem, '_id' | 'userInput' | 'name'>;
+  source: string;
+  createdAt: string;
+  updatedAt: string;
+};

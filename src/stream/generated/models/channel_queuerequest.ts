@@ -3,5 +3,5 @@
 /* eslint-disable */
 
 export type channel_queuerequest = {
-    video: string;
-}
+  video: string;
+};

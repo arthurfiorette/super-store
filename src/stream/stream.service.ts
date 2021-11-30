@@ -6,16 +6,14 @@ import {
   OnModuleInit
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
+import { EventEmitter2 } from '@nestjs/event-emitter';
 import { AxiosCacheInstance } from 'axios-cache-interceptor';
 import io from 'socket.io-client';
 import { Configuration } from '../common/configuration';
+import { Events } from '../common/events';
 import { StoreStreamApi } from './api';
-import {
-  AuthenticatedEvent,
-  RedemptionLatestUpdateEvent,
-  StreamElementsSocket,
-  UpdateEvent
-} from './socket-types';
+import { RedemptionsStreamApi } from './api/redemptions';
+import { AuthenticatedEvent, StreamElementsSocket, UpdateEvent } from './socket-types';
 
 @Injectable()
 export class StreamService implements OnModuleDestroy, OnModuleInit {
@@ -24,11 +22,13 @@ export class StreamService implements OnModuleDestroy, OnModuleInit {
   private readonly socket: StreamElementsSocket;
 
   readonly store: StoreStreamApi;
+  readonly redemptions: RedemptionsStreamApi;
 
   constructor(
     private readonly config: ConfigService<Configuration>,
     @Inject('axios')
-    private readonly axios: AxiosCacheInstance
+    private readonly axios: AxiosCacheInstance,
+    private readonly eventEmitter: EventEmitter2
   ) {
     const seId = config.get('seUserId')!;
     const seJwt = config.get('seUserJwt')!;
@@ -40,6 +40,7 @@ export class StreamService implements OnModuleDestroy, OnModuleInit {
     });
 
     this.store = new StoreStreamApi(this.axios, seId, seJwt);
+    this.redemptions = new RedemptionsStreamApi(this.axios, seId, seJwt);
   }
 
   public onModuleInit = () => {
@@ -94,13 +95,8 @@ export class StreamService implements OnModuleDestroy, OnModuleInit {
   private onEventUpdate = (event: UpdateEvent) => {
     switch (event.name) {
       case 'redemption-latest':
-        this.handleRedemption(event.data);
+        this.eventEmitter.emit(Events.REDEMPTION_NEW, event);
         break;
     }
-  };
-
-  // TODO: Handle redemption
-  private handleRedemption = ({ name, item }: RedemptionLatestUpdateEvent['data']) => {
-    this.logger.log(`${name} redeemed item ${item}.`);
   };
 }

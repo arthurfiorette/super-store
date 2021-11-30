@@ -10,13 +10,13 @@ import type { Subscriber1 } from './Subscriber1';
 import type { Tip1 } from './Tip1';
 
 export type Variables = {
-    css?: string;
-    html?: string;
-    js?: string;
-    follower?: Follower;
-    subscriber?: Subscriber1;
-    tip?: Tip1;
-    host?: Host1;
-    raid?: Raid1;
-    cheer?: Cheer1;
-}
+  css?: string;
+  html?: string;
+  js?: string;
+  follower?: Follower;
+  subscriber?: Subscriber1;
+  tip?: Tip1;
+  host?: Host1;
+  raid?: Raid1;
+  cheer?: Cheer1;
+};

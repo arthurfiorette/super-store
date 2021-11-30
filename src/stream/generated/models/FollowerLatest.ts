@@ -3,5 +3,5 @@
 /* eslint-disable */
 
 export type FollowerLatest = {
-    name: string;
-}
+  name: string;
+};

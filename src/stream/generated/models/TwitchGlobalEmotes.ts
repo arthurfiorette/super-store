@@ -5,5 +5,5 @@
 import type { Emote } from './Emote';
 
 export type TwitchGlobalEmotes = {
-    EmoteName?: Emote;
-}
+  EmoteName?: Emote;
+};

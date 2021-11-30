@@ -3,5 +3,5 @@
 /* eslint-disable */
 
 export type Amount = {
-    amount: number;
-}
+  amount: number;
+};

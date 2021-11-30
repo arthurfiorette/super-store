@@ -13,7 +13,7 @@ import { PutLoyaltyItem } from '../stream/api-types';
 import { StreamService } from '../stream/stream.service';
 
 @Injectable()
-export class StoreService {
+export class SellerService {
   private readonly logger = new Logger(this.constructor.name);
 
   constructor(
@@ -72,7 +72,7 @@ export class StoreService {
     return {
       type: 'perk',
 
-      name: storeName,
+      name: storeName + 'TEST',
       description: this.getInventoryLink(item),
 
       // FIXME: Only images from SE CDN are allowed.
@@ -122,6 +122,6 @@ export class StoreService {
   };
 
   private getInventoryLink = (item: CEconItem) => {
-    return `https://steamcommunity.com/id/griffitybr/inventory/${item.appid}_${item.contextid}_${item.id}`;
+    return `https://steamcommunity.com/id/griffitybr/inventory#${item.appid}_${item.contextid}_${item.id}`;
   };
 }

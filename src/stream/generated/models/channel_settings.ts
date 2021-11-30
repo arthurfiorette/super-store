@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type channel_settings = {
-    autoReset: boolean;
-    calendar: boolean;
-}
+  autoReset: boolean;
+  calendar: boolean;
+};

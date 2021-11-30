@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type channel_levelsrequest = {
-    username: string;
-    level: number;
-}
+  username: string;
+  level: number;
+};

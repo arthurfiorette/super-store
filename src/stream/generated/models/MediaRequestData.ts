@@ -10,15 +10,15 @@ import type { Tips } from './Tips';
 import type { Youtube } from './Youtube';
 
 export type MediaRequestData = {
-    player: Player;
-    limits: Limits;
-    backupPlaylist: BackupPlaylist;
-    bot: Bot1;
-    tips: Tips;
-    youtube: Youtube;
-    enabled: boolean;
-    mode: string;
-    moderation: boolean;
-    _id: string;
-    bannedUsers: Array<string>;
-}
+  player: Player;
+  limits: Limits;
+  backupPlaylist: BackupPlaylist;
+  bot: Bot1;
+  tips: Tips;
+  youtube: Youtube;
+  enabled: boolean;
+  mode: string;
+  moderation: boolean;
+  _id: string;
+  bannedUsers: Array<string>;
+};

@@ -5,5 +5,5 @@
 import type { Emote } from './Emote';
 
 export type BttvEmotes = {
-    EmoteName?: Emote;
-}
+  EmoteName?: Emote;
+};

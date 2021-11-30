@@ -3,7 +3,7 @@
 /* eslint-disable */
 
 export type Messages6 = {
-    _id: string;
-    count: number;
-    message: string;
-}
+  _id: string;
+  count: number;
+  message: string;
+};

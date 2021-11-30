@@ -7,9 +7,9 @@ import type { Tips } from './Tips';
 import type { Youtube } from './Youtube';
 
 export type Success48 = {
-    enabled: boolean;
-    limits: Limits;
-    mode: string;
-    tips: Tips;
-    youtube: Youtube;
-}
+  enabled: boolean;
+  limits: Limits;
+  mode: string;
+  tips: Tips;
+  youtube: Youtube;
+};

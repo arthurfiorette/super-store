@@ -12,19 +12,19 @@ import type { Variables } from './Variables';
 import type { Video } from './Video';
 
 export type Widget = {
-    id: number;
-    type: string;
-    visible: boolean;
-    locked: boolean;
-    listeners: Listeners;
-    css: Css;
-    text: Text;
-    image: Image;
-    video: Video;
-    audio: Audio;
-    animation: Animation;
-    variables: Variables;
-    provider: string;
-    staffOnly: boolean;
-    version?: number;
-}
+  id: number;
+  type: string;
+  visible: boolean;
+  locked: boolean;
+  listeners: Listeners;
+  css: Css;
+  text: Text;
+  image: Image;
+  video: Video;
+  audio: Audio;
+  animation: Animation;
+  variables: Variables;
+  provider: string;
+  staffOnly: boolean;
+  version?: number;
+};

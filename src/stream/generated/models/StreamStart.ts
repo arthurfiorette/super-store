@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type StreamStart = {
-    enabled: boolean;
-    message: string;
-}
+  enabled: boolean;
+  message: string;
+};

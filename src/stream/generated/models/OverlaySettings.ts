@@ -3,7 +3,7 @@
 /* eslint-disable */
 
 export type OverlaySettings = {
-    width: number;
-    height: number;
-    name: string;
-}
+  width: number;
+  height: number;
+  name: string;
+};

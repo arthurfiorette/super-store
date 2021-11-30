@@ -11,7 +11,7 @@
 yarn-error*
 
 # Important data
-/database.db*
+database.db*
 /.env
 
 # Other stuff

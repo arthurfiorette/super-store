@@ -3,7 +3,7 @@
 /* eslint-disable */
 
 export type AccessCodes = {
-    keys: Array<string>;
-    mode: string;
-    random: boolean;
-}
+  keys: Array<string>;
+  mode: string;
+  random: boolean;
+};

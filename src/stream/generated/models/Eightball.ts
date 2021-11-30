@@ -5,8 +5,8 @@
 import type { Cooldown } from './Cooldown';
 
 export type Eightball = {
-    cooldown: Cooldown;
-    enabled: boolean;
-    messages: Array<string>;
-    emotes: Array<string>;
-}
+  cooldown: Cooldown;
+  enabled: boolean;
+  messages: Array<string>;
+  emotes: Array<string>;
+};

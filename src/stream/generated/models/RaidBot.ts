@@ -5,6 +5,6 @@
 import type { AdditionalMessagesBot } from './AdditionalMessagesBot';
 
 export type RaidBot = {
-    enabled: boolean;
-    messages: Array<AdditionalMessagesBot>;
-}
+  enabled: boolean;
+  messages: Array<AdditionalMessagesBot>;
+};

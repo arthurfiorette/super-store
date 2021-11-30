@@ -5,6 +5,6 @@
 import type { StreamStart } from './StreamStart';
 
 export type Announcements = {
-    streamStart: StreamStart;
-    enabled: boolean;
-}
+  streamStart: StreamStart;
+  enabled: boolean;
+};

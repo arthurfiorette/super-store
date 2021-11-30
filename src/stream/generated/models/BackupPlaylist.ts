@@ -3,6 +3,6 @@
 /* eslint-disable */
 
 export type BackupPlaylist = {
-    url: string;
-    prioritizeQueue: boolean;
-}
+  url: string;
+  prioritizeQueue: boolean;
+};

@@ -9,14 +9,14 @@ import type { Text1 } from './Text1';
 import type { Tts } from './Tts';
 
 export type Tip1 = {
-    enableRandomPick: boolean;
-    enabled: boolean;
-    duration: number;
-    layout: string;
-    text: Text1;
-    graphics: Graphics;
-    audio: Audio1;
-    animation: Animation;
-    variations: Array<string>;
-    tts: Tts;
-}
+  enableRandomPick: boolean;
+  enabled: boolean;
+  duration: number;
+  layout: string;
+  text: Text1;
+  graphics: Graphics;
+  audio: Audio1;
+  animation: Animation;
+  variations: Array<string>;
+  tts: Tts;
+};

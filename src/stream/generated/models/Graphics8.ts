@@ -3,5 +3,5 @@
 /* eslint-disable */
 
 export type Graphics8 = {
-    duration: number;
-}
+  duration: number;
+};

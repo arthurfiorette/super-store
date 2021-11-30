@@ -3,7 +3,7 @@
 /* eslint-disable */
 
 export type AdditionalMessagesBot = {
-    _id: string;
-    amount: number;
-    message: string;
-}
+  _id: string;
+  amount: number;
+  message: string;
+};
