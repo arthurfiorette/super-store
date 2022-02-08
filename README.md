@@ -24,9 +24,15 @@
   <i>Boost your stream elements store with two way sync with a steam inventory!</i>
 </p>
 
-> <pre align="center">
-> Up to v1.0.0, this might not even compile :D
-> </pre>
+<br />
+
+<h1>
+  Project is unmaintained.
+  <br />
+  https://github.com/arthurfiorette/super-store/issues/117
+</h1>
+
+<br />
 
 ## Table of Contents
 
